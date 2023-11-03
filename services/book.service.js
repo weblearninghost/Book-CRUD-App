@@ -12,7 +12,8 @@ exports.getAllBooks = async function () {
 };
 
 exports.updateBook = async function (id, data) {
-  const result = await Book.findOneAndUpdate({ id }, data);
+  const result = await Book.findOneAndUpdate(id, data);
+  console.log({ result });
   return result;
 };
 

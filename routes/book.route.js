@@ -59,14 +59,14 @@ router.route('/book/:id').patch(async (req, res) => {
     const { id } = req.params;
 
     const data = req.body;
-    const result = await updateBook(id, data);
-    if (!result) {
-      res.statusCode = 404;
-      res.send({ message: 'Book not found.' });
-    }
+    const result = await updateBook({ _id: id }, data);
+    // if (!result) {
+    //   res.statusCode = 404;
+    //   res.send({ message: 'Book not found.' });
+    // }
     res.send(result);
   } catch (error) {
-    console.log('Error:', error.codeName);
+    console.log('Error:', error);
     res.send({
       Message: 'Error Occurred',
     });
